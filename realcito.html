@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cartita mágica</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e1e1e, #2b2b2b);
+    font-family: Georgia, serif;
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTENEDOR */
+.contenedor {
+    background: rgba(0,0,0,0.65);
+    padding: 30px;
+    max-width: 900px;
+    max-height: 90vh;
+    border-radius: 18px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.1);
+    overflow-y: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.carta-layout {
+    display: flex;
+    gap: 25px;
+}
+
+.carta {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 16px;
+    flex: 1;
+}
+
+.lado {
+    width: 220px;
+    text-align: center;
+}
+
+button {
+    background: #ff8fb1;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+button:hover {
+    background: #ff6f9f;
+}
+
+h2, h3 {
+    font-weight: normal;
+    text-align: center;
+}
+
+.musica img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* CORAZONES <3 */
+.corazon {
+    position: fixed;
+    color: rgba(255, 150, 180, 0.35);
+    font-size: 20px;
+    animation: flotar linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes flotar {
+    from {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor" id="app">
+    <h2>¿Sos Isita?</h2>
+    <button onclick="siguiente(1)">Sí</button>
+    <button onclick="reset()">No</button>
+</div>
+
+<script>
+/* FLUJO */
+function siguiente(paso) {
+    const app = document.getElementById("app");
+
+    if (paso === 1) {
+        app.innerHTML = `
+        <h2>¿Isita Capeletini?</h2>
+        <button onclick="siguiente(2)">Sí</button>
+        <button onclick="reset()">No</button>`;
+    }
+
+    if (paso === 2) {
+        app.innerHTML = `
+        <h2>¿Querés mucho a Ginito?</h2>
+        <button onclick="siguiente(3)">Sí</button>
+        <button onclick="reset()">No</button>`;
+    }
+
+    if (paso === 3) {
+        app.innerHTML = `
+        <h2>¿Amás mucho a Ginito?</h2>
+        <button onclick="mostrarCarta()">Sí</button>
+        <button onclick="reset()">No</button>`;
+    }
+}
+
+/* CARTA */
+function mostrarCarta() {
+document.getElementById("app").innerHTML = `
+<div class="carta-layout">
+<div class="carta">
+HOLA MI AMORTITOOOOOOOOOO,
+
+Esta vez fue el primer añito donde lo pasé con vos :3, la verdad se me hizo re bonito todo el tiempo que pasamos juntos, amé todo lo que pasamos juntitos y vamos a seguir pasando, me sorprende lo rápido que pasó el tiempo con vos, eso porque lo pasé bien, jiji.
+
+En un momento vamos a cumplir 7 años y nos vamos a acordar de esto y va a ser re bonito.
+
+Me gusta pasar tiempo con vos, por lo que me acuerdo nunca me aburrí con vos, y si me aburrí o me aburriera, la verdad no importa eso si estoy con vos, o sea fijate que si es que pasó ni me acuerdo, jiji.
+
+En fin, te amo mutito, gordita, amé este año y también te amé a vos, jiji :3.
+
+Nunca me voy a arrepentir de haber conocido, espero que si nos vemos el sabadito nos demos muchos besitos, jijijij.
+
+No sé si te acordarás de que te iba a hacer una cartita, pero aki ta, jiji.
+
+No sabés lo feliz que me hacés, siempre me hacés sentir bien :3.
+
+Gracias por todito, bebé, gracias también por cambiar cositas tuyas, y yo cambié cositas por vos pero porque vale la pena cambiar por vos.
+
+Gracias por todo este añito, y por los próximos, ehh.
+
+No te voy a dejar escapar, jiji, te amo muto, bebé emota, y mucho sushi pa vooo.
+</div>
+
+<div class="lado">
+<button onclick="mostrarNivelSecreto()">NIVEL SECRETO</button>
+
+<h3>Música que me recuerda a vos</h3>
+<div class="musica">
+<a href="https://www.youtube.com/watch?v=MUmrwSdf0oI" target="_blank">
+<img src="https://img.youtube.com/vi/MUmrwSdf0oI/hqdefault.jpg">
+</a>
+<a href="https://www.youtube.com/watch?v=K6IAaQ0vvkk" target="_blank">
+<img src="https://img.youtube.com/vi/K6IAaQ0vvkk/hqdefault.jpg">
+</a>
+<a href="https://www.youtube.com/watch?v=d_IDIVHROCs" target="_blank">
+<img src="https://img.youtube.com/vi/d_IDIVHROCs/hqdefault.jpg">
+</a>
+<a href="https://www.youtube.com/watch?v=98-TCY2bucE" target="_blank">
+<img src="https://img.youtube.com/vi/98-TCY2bucE/hqdefault.jpg">
+</a>
+<a href="https://www.youtube.com/watch?v=e23BTGIJcq8" target="_blank">
+<img src="https://img.youtube.com/vi/e23BTGIJcq8/hqdefault.jpg">
+</a>
+</div>
+</div>
+</div>`;
+}
+
+/* NIVEL SECRETO */
+function mostrarNivelSecreto() {
+document.getElementById("app").innerHTML = `
+<div class="carta">
+NIVEL SECRETO  
+¿QUÉ HACÉS AKI, GORDITA TRAVIESAAAAA?
+
+Bueno, ya que estás acá, te voy a dar las razones de porke te amo tantooooooooooooooooooooo
+
+1: Esta es un clásico, pero es cierto, amo cómo sos :3  
+2: Amo cómo tratás a este gordito que te ama muto y es algo chenchible, aunque quiere hacerse el fuertesitoo  
+2: Me hacés reír una banda, y posta que yo con ninguna pareja me reía tanto como me río con vos :3  
+3: Vos darías todito por mí y yo daría todito por vooooo  
+4: Sos re linda, amo cómo te vez en todos los aspectos, sos divinaaaa  
+5: Amo tu personalidad, sos chenchible, muy cariñosita, y te asutaaa, jiji :3  
+6: Amo tus gustos, no son muy comunes como para que ya haya visto y no me interese, por ejemplo, son interesantes y gracias a vos miré The Big Bang Theory, que es una de mis series favoritas :3  
+7: NOOO, sos aburrida ni en pedo, amo pasarla con vos  
+8: También tenés una actitud bastante firmecita y que tampoco te da vergüenza algunas cositas, ejemplo cuando me da vergüenza pedir algo y lo pedís vos, aunque no me guta muto cuando me cagás a pedito, jiji  
+9: Te preocupo mutito, como ya te diste cuenta, a vos sí te importaba cómo estaba, que deje malos hábitos y así, eso lo aprecio un montonazoooo  
+10: Amo lo fiel que sos, hablás bien de mí, me defendés, todo eso lo amo un montón, no es tan común de ver eso :3  
+
+DATO EXTRITA:  
+COCINÁS RE RIKITOOOOOOOOOOOO
+</div>
+<button onclick="mostrarCarta()">⬅ Volver</button>`;
+}
+
+/* RESET */
+function reset() {
+document.getElementById("app").innerHTML =
+`<h2>D,:</h2>`;
+}
+
+/* GENERADOR DE <3 */
+setInterval(() => {
+    const corazon = document.createElement("div");
+    corazon.className = "corazon";
+    corazon.innerText = "<3";
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.fontSize = (14 + Math.random() * 24) + "px";
+    corazon.style.animationDuration = (6 + Math.random() * 6) + "s";
+    document.body.appendChild(corazon);
+    setTimeout(() => corazon.remove(), 12000);
+}, 500);
+</script>
+
+</body>
+</html>
